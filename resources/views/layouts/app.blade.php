@@ -29,7 +29,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="nav  bar-nav me-auto">
 
                     </ul>
 
@@ -57,7 +57,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('home') }}">ホーム</a>
                                     <a class="dropdown-item" href="{{ route('home') }}">タスク一覧</a>
-                                    <a class="dropdown-item" href="{{ route('home') }}">タスク登録</a>
+                                    <a class="dropdown-item" href="{{ route('show_task_register') }}">タスク登録</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
