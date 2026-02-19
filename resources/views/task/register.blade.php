@@ -8,6 +8,8 @@
 
             <div class="card shadow-sm bg-white">
                 <!-- エラーメッセージの表示領域 -->
+                @include('common.errors')
+
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -23,16 +25,16 @@
                     <form action="{{ route('task_register') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="title" class="form-label">タスク名</label>
-                            <input type="text" id="title" name="title" class="form-control">
+                            <label for="title" class="form-label">{{ config('const.label.task_name') }}</label>
+                            <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="detail" class="form-label">詳細</label>
-                            <input type="text" id="detail" name="detail" class="form-control">
+                            <label for="detail" class="form-label">{{ config('const.label.detail') }}</label>
+                            <input type="text" id="detail" name="detail" class="form-control" value="{{ old('detail') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="deadline" class="form-label">締切日</label>
-                            <input type="date" id="deadline" name="deadline" class="form-control">
+                            <label for="deadline" class="form-label">{{ config('const.label.deadline') }}</label>
+                            <input type="date" id="deadline" name="deadline" class="form-control" value="{{ old('deadline') }}">
                         </div>
                         <div class="mb-3 text-center">
                             <button type="submit" class="btn btn-primary px-4 custom-btn">登録する</button>

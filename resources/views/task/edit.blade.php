@@ -23,21 +23,21 @@
                     <form action="{{ route('task_edit', ['task_id' => $task->id ]) }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="title" class="form-label">タスク名</label>
-                            <input type="text" id="title" name="title" class="form-control" value="{{ $task->title }}">
+                            <label for="title" class="form-label">{{ config('const.label.task_name') }}</label>
+                            <input type="text" id="title" name="title" class="form-control" value="{{ old('title', $task->title) }}">
                         </div>
                         <div class="mb-3">
-                            <label for="detail" class="form-label">詳細</label>
-                            <input type="text" id="detail" name="detail" class="form-control" value="{{ $task->detail }}">
+                            <label for="detail" class="form-label">{{ config('const.label.detail') }}</label>
+                            <input type="text" id="detail" name="detail" class="form-control" value="{{ old('detail', $task->detail) }}">
                         </div>
                         <div class="mb-3">
-                            <label for="deadline" class="form-label">締切日</label>
-                            <input type="date" id="deadline" name="deadline" class="form-control" value="{{ optional($task->deadline)->format('Y-m-d') }}">
+                            <label for="deadline" class="form-label">{{ config('const.label.deadline') }}</label>
+                            <input type="date" id="deadline" name="deadline" class="form-control" value="{{ old('deadline', optional($task->deadline)->format('Y-m-d')) }}">
                         </div>
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
                                 <input type="radio" id="finish_flg1" name="finish_flg" class="form-check-input"
-                                value="0" {{ $task->finish_flg == 0 ? 'checked' : '' }}>
+                                value="0" {{ old ('finish_flg', $task->finish_flg) == 0 ? 'checked' : '' }}>
                                 <label for="finish_flg1" class="form-check-label">未完了</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -47,9 +47,9 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="finish_date" class="form-label">完了日</label>
+                            <label for="finish_date" class="form-label">{{ config('const.label.finish_date') }}</label>
                             <input type="date" id="finish_date" name="finish_date" class="form-control"
-                            value="{{ optional($task->finish_date)->format('Y-m-d') }}">
+                            value="{{ old('finish_date', optional($task->finish_date)->format('Y-m-d')) }}">
                         </div>
                         <div class="mb-3 text-center">
                             <button type="submit" class="btn btn-primary px-4 custom-btn">編集する</button>
